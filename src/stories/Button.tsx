@@ -1,48 +1,29 @@
-import React from 'react';
-import './button.css';
+import React from "react";
+import {ComponentProps} from "react";
+import clsx from "clsx";
 
-interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
+const styles = {
+    default: 'button',
+    variant: {
+        primary: 'button--primary',
+        secondary: 'button--secondary',
+        destructive: 'button--destructive',
+    },
+    size: {
+        small: 'button--small',
+        medium: 'button--medium',
+        large: 'button--large',
+    }
 }
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
-  ...props
-}: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
-  );
+export type ButtonProps = ComponentProps<'button'> & {
+    variant?: 'primary' | 'secondary' | 'destructive';
+    size?: 'small' | 'medium' | 'large';
 };
+
+export const Button = ({variant, size, ...props}: ButtonProps) => {
+    // let className = clsx(styles.default, styles[variant], styles[size]);
+    let classes = clsx(styles.default);
+
+    return <button className={classes} {...props} />;
+}
