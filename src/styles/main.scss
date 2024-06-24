@@ -1,3 +1,9 @@
-.button {
-    color: red;
-}
+//import globals
+@use './global/variables.scss';
+@use './global/typography.scss';
+@use './global/globals.scss';
+
+//import components
+@use  './components/button.scss';
+
+//import modules
