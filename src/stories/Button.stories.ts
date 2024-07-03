@@ -24,6 +24,36 @@ export const Default: Story = {
     args: {
         children: 'Button',
         variant: 'primary',
+        disabled: false
+    }
+};
+
+export const Secondary: Story = {
+    args: {
+        children: 'Button',
+        variant: 'secondary',
+        disabled: false
+    }
+};
+
+export const Destructive: Story = {
+    args: {
+        children: 'Button',
+        variant: 'destructive',
+        disabled: false
+    }
+};
+
+export const Dark: Story = {
+    parameters: {
+        themes: {
+            themeOverride: 'dark'
+        }
+    },
+    args: {
+        children: 'Button',
+        variant: 'primary',
+        disabled: false
     }
 };
 

@@ -1,0 +1,5 @@
+html {
+  &[data-mode='dark'] {
+    background: var(--black);
+  }
+}
