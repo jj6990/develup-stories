@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 import {Button} from '../scripts/components/Button';
 
 const meta = {
-    title: 'Example/Button',
+    title: 'Components/Button',
     component: Button,
     tags: ['autodocs'],
     parameters: {
@@ -11,6 +11,9 @@ const meta = {
     args: {
         variant: 'primary',
         size: 'medium',
+    },
+    argTypes: {
+        disabled: {control: 'boolean'},
     }
 } satisfies Meta<typeof Button>;
 

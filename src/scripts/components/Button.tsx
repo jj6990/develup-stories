@@ -5,14 +5,14 @@ import clsx from "clsx";
 const styles = {
     default: 'button',
     variant: {
-        primary: 'button--primary',
-        secondary: 'button--secondary',
-        destructive: 'button--destructive',
+        primary: 'primary',
+        secondary: 'secondary',
+        destructive: 'destructive',
     },
     size: {
-        small: 'button--small',
-        medium: 'button--medium',
-        large: 'button--large',
+        small: 'small',
+        medium: 'medium',
+        large: 'large',
     }
 }
 
@@ -21,9 +21,7 @@ export type ButtonProps = ComponentProps<'button'> & {
     size?: 'small' | 'medium' | 'large';
 };
 
-export const Button = ({variant, size, ...props}: ButtonProps) => {
-    // let className = clsx(styles.default, styles[variant], styles[size]);
-    let classes = clsx(styles.default);
-
-    return <button className={classes} {...props} />;
+export const Button = ({variant = 'primary', size = 'medium', className, ...props}: ButtonProps) => {
+    let classes = clsx(styles.default, styles.variant[variant], styles.size[size], className);
+    return <button {...props} className={classes}/>;
 }
