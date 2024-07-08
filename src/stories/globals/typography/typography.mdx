@@ -1,0 +1,79 @@
+import {Meta, Typeset} from '@storybook/blocks';
+
+<Meta title="Typography"/>
+
+export const typography = {
+    type: {
+        primary: '"Inter", sans-serif',
+        secondary: '"Roboto", sans-serif',
+    },
+    weight: {
+        light: 300,
+        regular: 400,
+        bold: 600,
+    },
+    size: {
+        display1: 96,
+        display2: 72,
+        display3: 52,
+        display4: 40,
+        heading1: 32,
+        heading2: 28,
+        heading3: 24,
+        heading4: 20,
+        body1: 16,
+        body2: 14,
+        caption: 12,
+    },
+};
+
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+# Typography
+
+**Font:** Inter
+
+**Description:** Used for primary text and headings.
+
+**Weights:** 300(regular), 400(normal), 600(bold)
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.display1),
+        Number(typography.size.display2),
+        Number(typography.size.display3),
+        Number(typography.size.display4),
+    ]}
+    fontWeight={typography.weight.bold}
+    sampleText={SampleText}
+    fontFamily={typography.type.primary}
+/>
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.heading1),
+        Number(typography.size.heading2),
+        Number(typography.size.heading3),
+        Number(typography.size.heading4),
+    ]}
+    fontWeight={typography.weight.bold}
+    sampleText={SampleText}
+    fontFamily={typography.type.primary}
+/>
+
+**Font:** Roboto
+
+**Description:** Used for secondary text and body text.
+
+**Weights:** 300(regular), 400(normal), 600(bold)
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.body1),
+        Number(typography.size.body2),
+        Number(typography.size.caption)
+    ]}
+    fontWeight={typography.weight.normal}
+    sampleText={SampleText}
+    fontFamily={typography.type.secondary}
+/>
