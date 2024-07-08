@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {Button} from '../scripts/components/Button';
+import {Button} from '../../../scripts/components/buttons/Button';
 
 const meta = {
     title: 'Components/Button',
@@ -8,12 +8,10 @@ const meta = {
     parameters: {
         layout: 'centered',
     },
-    args: {
-        variant: 'primary',
-        size: 'medium',
-    },
     argTypes: {
-        disabled: {control: 'boolean'},
+        variant: {control: {type: 'select', options: ['primary', 'secondary', 'outline', 'link']}},
+        size: {control: {type: 'select', options: ['small', 'medium', 'large']}},
+        disabled: {control: 'boolean'}
     }
 } satisfies Meta<typeof Button>;
 
@@ -36,10 +34,10 @@ export const Secondary: Story = {
     }
 };
 
-export const Destructive: Story = {
+export const Outline: Story = {
     args: {
         children: 'Button',
-        variant: 'destructive',
+        variant: 'outline',
         disabled: false
     }
 };
